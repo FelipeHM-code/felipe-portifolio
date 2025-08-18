@@ -8,6 +8,8 @@
     <title>Felipe Henrique</title>
 </head>
 <body>
+
+    <div class="particulas"></div>
     <nav class="navegacao">
         <ul class="menu">
             <li>
@@ -38,6 +40,10 @@
   </svg>
   <span>Visitar meu Github</span>
 </button></a>
+
+<a href="https://www.linkedin.com/in/felipe-henrique-0145b9287/" target="_blank" class="btn-linkedin" class="linkedin-btn"><button style="color: inherit; background: none;"></button>
+    <img src="src/images/linkedin.png" alt="" style="width: 16px; height: 16px; fill: none; border: none;">
+    <span >Visitar meu Linkedin</span></a>
  
     </nav>
     <main id="inicio" class="cabecalho">
@@ -79,15 +85,34 @@
 
     <section id="Contato" class="contatos">
         <h2 class="contatos-titulo">Entre em Contato</h2>
-         <form action="" class="formulario-contato" id="formulario">
-           <div class="grupo-form"> <input placeholder="Nome" class="campo-form">
+         <form action="" class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+           <div class="grupo-form"> <input placeholder="Nome" class="campo-form" id="nome">
             </div>
             <div class="grupo-form">
-            <textarea class="campo-form" placeholder="Digite sua mensagem">
+            <textarea class="campo-form" placeholder="Digite sua mensagem" id="mensagem" rows="4">
 
             </textarea>
             </div>
+
+            <button type="submit" class="btn-form">Enviar whatsapp</button>
          </form>
     </section>
+
+    <script>
+        function enviarWhats(){
+        event.preventDefault()
+
+        const nome = document.getElementById('nome').value;
+        const mensagem = document.getElementById('mensagem').value;
+        const telefone = '5587981383108'
+
+        const texto = `Ola! Me chamo ${nome} , ${mensagem}`
+        const msgFormatada = encodeURIComponent(texto)
+
+        const url = `https://whatsa.me/${telefone}/?t=${msgFormatada}`
+        window.open(url, '_blank')}
+
+        
+    </script>
 </body>
 </html>
